@@ -1,16 +1,6 @@
 # tech_stacks_admin_pannel
 
-A new Flutter project.
+#### Getting Started
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Apple iPhone 11 Pro Max Presentation (1)](https://github.com/RRKawchar/Tech_Stack_Admin_panel/assets/97376140/71dd7a9d-8767-4318-95ca-39efec9ffda8)
+![Apple iPhone 11 Pro Max Presentation (2)](https://github.com/RRKawchar/Tech_Stack_Admin_panel/assets/97376140/31d7b423-96da-4d31-b343-e4645fd739f0)
