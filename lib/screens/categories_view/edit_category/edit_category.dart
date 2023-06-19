@@ -6,20 +6,21 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:tech_stacks_admin_pannel/constants/constants.dart';
 import 'package:tech_stacks_admin_pannel/helper/firebase_storage_helper/firebase_storage_helpers.dart';
+import 'package:tech_stacks_admin_pannel/models/category_model/categories_model.dart';
 import 'package:tech_stacks_admin_pannel/models/user_model/user_model.dart';
 import 'package:tech_stacks_admin_pannel/provider/app_provider.dart';
 import 'package:tech_stacks_admin_pannel/widgets/custom_text.dart';
 
-class EditUser extends StatefulWidget {
-  final UserModel userModel;
+class EditCategory extends StatefulWidget {
+  final CategoriesModel categoriesModel;
   final int index;
-  const EditUser({Key? key, required this.userModel, required this.index}) : super(key: key);
+  const EditCategory({Key? key, required this.categoriesModel, required this.index}) : super(key: key);
 
   @override
-  State<EditUser> createState() => _EditUserState();
+  State<EditCategory> createState() => _EditCategoryState();
 }
 
-class _EditUserState extends State<EditUser> {
+class _EditCategoryState extends State<EditCategory> {
 
   final ImagePicker _picker=ImagePicker();
   File? image;
@@ -65,7 +66,7 @@ class _EditUserState extends State<EditUser> {
           TextFormField(
             controller: nameController,
             decoration: InputDecoration(
-                hintText:widget.userModel.name
+                hintText:widget.categoriesModel.name
             ),
           ),
           const SizedBox(height: 12.0,),
@@ -73,24 +74,24 @@ class _EditUserState extends State<EditUser> {
               onPressed: ()async{
                 if(image==null && nameController.text.isEmpty){
 
-                   Navigator.of(context).pop();
+                  Navigator.of(context).pop();
                 }
-               else if(image != null){
-                 String imageUrl=await FirebaseStorageHelpers.instance.uploadImage(widget.userModel.id,image!);
-                  UserModel userModel= widget.userModel.copyWith(
+                else if(image != null){
+                  String imageUrl=await FirebaseStorageHelpers.instance.uploadImage(widget.categoriesModel.id,image!);
+                  CategoriesModel categoriesModel= widget.categoriesModel.copyWith(
                       image: imageUrl,
                       name: nameController.text.isEmpty?null:nameController.text
                   );
 
-                  provider.updateUser(widget.index,userModel);
+                  provider.updateCategory(widget.index,categoriesModel);
                   showMessage(message: "Update successfully");
                 }else{
 
-                  UserModel userModel= widget.userModel.copyWith(
+                  CategoriesModel categoriesModel= widget.categoriesModel.copyWith(
                       name: nameController.text.isEmpty?null:nameController.text
                   );
 
-                  provider.updateUser(widget.index,userModel);
+                  provider.updateCategory(widget.index,categoriesModel);
                   showMessage(message: "Update successfully");
                 }
                 Navigator.of(context).pop();

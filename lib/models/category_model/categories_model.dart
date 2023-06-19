@@ -27,4 +27,16 @@ class CategoriesModel {
     "name": name,
     "image": image,
   };
+
+
+
+  CategoriesModel copyWith({
+    String? name,image,
+  }) {
+    return CategoriesModel(
+      image: image??this.image,
+      id: id,
+      name:name??this.name,
+    );
+  }
 }

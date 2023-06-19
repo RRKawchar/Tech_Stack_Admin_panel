@@ -43,7 +43,7 @@ class CategoriesView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         CategoriesModel categoriesModel =
                             value.getCategoriesList[index];
-                        return CategoryCardItem(categoriesModel: categoriesModel);
+                        return CategoryCardItem(categoriesModel: categoriesModel, index: index,);
                         // return SingleUserCardItem(index: index,userModel: categoriesModel);
                       }),
                 ],

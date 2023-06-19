@@ -68,7 +68,7 @@ class _SingleUserCardItemState extends State<SingleUserCardItem> {
             const SizedBox(width: 8.0,),
             GestureDetector(
                 onTap: () async {
-                Routes.push(context: context, page: EditProfile(index:widget.index ,userModel: widget.userModel));
+                Routes.push(context: context, page: EditUser(index:widget.index ,userModel: widget.userModel));
                 },
                 child: const Icon(
                   Icons.edit,

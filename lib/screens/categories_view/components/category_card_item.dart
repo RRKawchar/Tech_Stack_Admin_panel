@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tech_stacks_admin_pannel/constants/colors.dart';
+import 'package:tech_stacks_admin_pannel/constants/routes.dart';
 import 'package:tech_stacks_admin_pannel/models/category_model/categories_model.dart';
 import 'package:tech_stacks_admin_pannel/provider/app_provider.dart';
+import 'package:tech_stacks_admin_pannel/screens/categories_view/edit_category/edit_category.dart';
 import 'package:tech_stacks_admin_pannel/widgets/custom_network_image.dart';
 
 class CategoryCardItem extends StatefulWidget {
   final CategoriesModel categoriesModel;
-  const CategoryCardItem({Key? key, required this.categoriesModel})
+  final int index;
+  const CategoryCardItem({Key? key, required this.categoriesModel, required this.index})
       : super(key: key);
 
   @override
@@ -68,7 +71,9 @@ class _CategoryCardItemState extends State<CategoryCardItem> {
                     width: 12.0,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Routes.push(context: context, page: EditCategory(categoriesModel: widget.categoriesModel, index: widget.index));
+                    },
                     child: const Icon(
                       Icons.edit,
                       color: primaryColor,
